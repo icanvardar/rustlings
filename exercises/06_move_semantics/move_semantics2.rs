@@ -5,15 +5,15 @@
 // Execute `rustlings hint move_semantics2` or use the `hint` watch subcommand
 // for a hint.
 
-// I AM NOT DONE
+use std::rc::Rc;
 
 #[test]
 fn main() {
-    let vec0 = vec![22, 44, 66];
+    let vec0 = Rc::new(vec![22, 44, 66]);
 
-    let vec1 = fill_vec(vec0);
+    let vec1 = fill_vec(Rc::clone(&vec0).to_vec());
 
-    assert_eq!(vec0, vec![22, 44, 66]);
+    assert_eq!(vec0, Rc::new(vec![22, 44, 66]));
     assert_eq!(vec1, vec![22, 44, 66, 88]);
 }
 
