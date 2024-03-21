@@ -13,10 +13,26 @@
 //
 // No hints this time ;)
 
-// I AM NOT DONE
+const THRESHOLD: u32 = 40;
+const APPLE_PRICE: u32 = 2;
+const DISCOUNT: u32 = 50;
 
 // Put your function here!
-// fn calculate_price_of_apples {
+fn calculate_price_of_apples(amt: u32) -> u32 {
+    let mut has_discount = false;
+
+    if (amt > THRESHOLD) {
+        has_discount = true;
+    }
+
+    let total_price = amt * APPLE_PRICE;
+
+    if (has_discount) {
+        return total_price - ((total_price * DISCOUNT) / 100);
+    }
+
+    total_price
+}
 
 // Don't modify this function!
 #[test]
